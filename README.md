@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Insightify Website Interface
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for **Insightify**, built using **React**. It allows users to view and interact with news articles, categorized by various topics. The app fetches data from the **Insightify Apringboot Backend** API and displays articles in an organized and user-friendly way.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Category-based News**: Users can select news categories to filter articles.
+- **View Article Details**: Click on an article to view its full details, including title, content, and source.
+- **Responsive Design**: The app is fully responsive and optimized for both desktop and mobile devices.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before running the frontend, ensure you have the following installed:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Node.js** (Recommended: LTS version)
+- **npm** (or use `yarn` if preferred)
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Clone the Repository
 
-### `npm run build`
+```bash
+git clone https://github.com/shaansuraj/insightify-web-interface.git
+cd insightify-web-interface
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install the necessary dependencies using npm (or yarn):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+### Run the Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run the app locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This will start the development server and open the app in your default web browser. The app will be available at `http://localhost:3000` by default.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build for Production
 
-## Learn More
+To create a production build, run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will create a `build` directory with all the optimized production files.
 
-### Code Splitting
+### API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This frontend communicates with the backend service running on `http://localhost:8000`. Make sure that the backend is up and running before using the frontend.
 
-### Analyzing the Bundle Size
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```plaintext
+src/
+  ├── components/
+  │    ├── ArticleList.js      // Displays list of articles
+  │    ├── ArticleDetails.js   // Displays individual article details
+  │    ├── CategorySelector.js // Dropdown to select news category
+  │    ├── Header.js           // Main header with the app title and category selector
+  ├── App.js                   // Main app component
+  ├── index.js                 // Entry point for React app
+  ├── index.css                // Global styles
+public/
+  ├── index.html               // Main HTML file
+```
 
-### Making a Progressive Web App
+### Component Breakdown
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **App.js**: The main entry point of the app. It manages the state for the selected news category and passes it to the `ArticleList` and `Header` components.
+2. **Header.js**: Displays the app's title and contains the `CategorySelector` to choose a news category.
+3. **CategorySelector.js**: A dropdown component that allows the user to select a news category. It triggers a state change in the `App.js` component.
+4. **ArticleList.js**: Displays a list of articles fetched from the backend based on the selected category.
+5. **ArticleDetails.js**: Shows the details of a single article when the user clicks on an article from the list.
 
-### Advanced Configuration
+### Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The app uses basic CSS for styling, which is located in `index.css`. It includes styles for the header, article list, individual article items, and article details view.
 
-### Deployment
+### CORS (Cross-Origin Resource Sharing)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you encounter CORS issues when developing the frontend locally (running on port `3000` while the backend is on port `8000`), ensure that the backend is configured to allow requests from the frontend’s domain. 
 
-### `npm run build` fails to minify
+In case you face CORS issues, you can add the following CORS configuration to the backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```java
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000")  // Frontend URL
+                .allowedMethods("GET", "POST", "PUT", "DELETE");
+    }
+}
+```
+
+## Running in Production
+
+To deploy the app to production, you can:
+
+1. **Build the project** with `npm run build`.
+2. **Host** the build folder on a static web server like [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/), or [GitHub Pages](https://pages.github.com/).
+
+## Testing
+
+You can test the app manually by interacting with it through the browser. For automated testing, you can use tools like Jest or React Testing Library, which are already set up by default in a Create React App project.
+
+### Example Tests
+
+To run tests, use:
+
+```bash
+npm test
+```
+
+## Known Issues
+
+- Ensure that the backend service is up and running for the app to fetch news data properly.
+- CORS issues may occur if the backend isn't configured to allow requests from the frontend.
+
+## Contributing
+
+Contributions are welcome! If you find a bug or want to add a new feature, feel free to fork the repository and create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to modify the README based on the actual structure, environment, and configuration of your application!
