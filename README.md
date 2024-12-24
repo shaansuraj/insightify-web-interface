@@ -1,3 +1,4 @@
+
 # Insightify Website Interface
 
 This is the frontend application for **Insightify**, built using **React**. It allows users to view and interact with news articles, categorized by various topics. The app fetches data from the **Insightify Apringboot Backend** API and displays articles in an organized and user-friendly way.
@@ -138,3 +139,50 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Feel free to modify the README based on the actual structure, environment, and configuration of your application!
+
+
+
+
+|-- src
+  |-- App.css
+  |-- App.js
+  |-- index.js
+  |-- reportWebVitals.js
+  |-- setupTests.js
+  |-- context
+    |-- ThemeContext.js
+  |-- hooks
+    |-- useFavorites.js
+  |-- utils
+    |-- axiosInstance.js
+  |-- components
+    |-- ArticleDetails.js
+    |-- ArticleList.js
+    |-- CategorySelector.js
+    |-- Navbar.js
+    |-- PageTransition.js
+    |-- ParallaxSection.js
+    |-- ThemeToggler.js
+    |-- Tooltip.js
+    |-- styles
+      |-- Loader.css
+      |-- Navbar.css
+      |-- PageTransition.css
+      |-- ParallaxSection.css
+      |-- ThemeToggler.css
+      |-- Tooltip.css
+  |-- pages
+    |-- About.css
+    |-- About.js
+    |-- Favorites.js
+    |-- Home.js
+    |-- homePage.js
+    |-- Login.js
+    |-- Signup.js
+    |-- styles
+      |-- ArticleDetails.css
+      |-- Favorites.css
+      |-- Home.css
+      |-- HomePage.css
+      |-- Login.css
+      |-- Signup.css

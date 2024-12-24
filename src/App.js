@@ -1,24 +1,37 @@
+// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import ArticleList from './components/ArticleList';
+import Home from './pages/Home'; // For authenticated users
+import HomePage from './pages/homePage'; // For non-authenticated users
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import ArticleDetails from './components/ArticleDetails';
-import './index.css';
+import Favorites from './pages/Favorites';
+import Navbar from './components/Navbar';
+import About from './pages/About';
+import { ThemeProvider } from './context/ThemeContext'; // Added ThemeProvider import
+import './App.css';
 
-const App = () => {
-  const [category, setCategory] = useState('general');
+function App() {
+  const [category, setCategory] = useState('general'); // State for category
+
+  const token = localStorage.getItem('token'); // Check if the user is authenticated
 
   return (
-    <Router>
-      <Header setCategory={setCategory} />
-      <div className="app-container">
+    <ThemeProvider> {/* Wrap the app with ThemeProvider */}
+      <Router>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<ArticleList category={category} />} />
+          <Route path="/" element={token ? <Home setCategory={setCategory} /> : <HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/article/:id" element={<ArticleDetails />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/about" element={<About />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;

@@ -1,0 +1,88 @@
+/* Global styles */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f4f7fc;
+  --text-color: #2c3e50;
+  --button-bg: #3498db;
+  --button-hover: #2980b9;
+  --font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+/* Center the homepage content */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.homepage-container h1 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.homepage-container p {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.homepage-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.homepage-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background-color: var(--button-bg);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+  margin: 0.5rem;
+  text-transform: uppercase;
+}
+
+.homepage-btn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Responsive Design for mobile */
+@media (max-width: 768px) {
+  .homepage-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .homepage-container p {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .homepage-buttons {
+    flex-direction: column;
+  }
+
+  .homepage-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

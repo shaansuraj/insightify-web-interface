@@ -1,0 +1,117 @@
+.article-details-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  .article-details-container img {
+    width: 100%;
+    height: 400px; /* Fixed height for images */
+    object-fit: cover; /* Ensures proper cropping to fit dimensions */
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ddd;
+  }
+  
+  .article-details-container h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .article-details-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  .article-details-container a.read-more-link {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .article-details-container a.read-more-link:hover {
+    background-color: #2980b9;
+  }
+  
+  .article-details-container .back-button {
+    display: inline-block;
+    margin-bottom: 1rem;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .article-details-container .back-button:hover {
+    background-color: #bdc3c7;
+  }
+  
+  .article-details-container .favorite-btn {
+    margin-top: 1.5rem;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .article-details-container .favorite-btn:hover {
+    background-color: #c0392b;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .article-details-container strong {
+    color: #34495e;
+  }
+  
+  .article-details-container .article-image {
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .article-details-container {
+      padding: 1.5rem;
+    }
+  
+    .article-details-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .article-details-container p {
+      font-size: 0.95rem;
+    }
+  
+    .article-details-container .back-button,
+    .article-details-container .favorite-btn,
+    .article-details-container a.read-more-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  

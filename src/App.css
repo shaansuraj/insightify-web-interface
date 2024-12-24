@@ -1,0 +1,38 @@
+/* Default (Light Mode) */
+body {
+  --primary: #003366;
+  --button-bg: #007acc;
+  --button-hover: #005b99;
+  --text-color: #333;
+  background-color: #f4f4f9;
+  color: var(--text-color);
+}
+
+/* Dark Mode (Applied when data-theme="dark") */
+[data-theme='dark'] {
+  --primary: #121212;
+  --button-bg: #555;
+  --button-hover: #333;
+  --text-color: #f5f5f5;
+  background-color: var(--primary);
+  color: var(--text-color);
+}
+
+/* Use variables in buttons and links */
+button {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--button-hover);
+}

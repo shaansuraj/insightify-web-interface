@@ -1,0 +1,30 @@
+/* src/components/Tooltip.css */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    z-index: 10;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  

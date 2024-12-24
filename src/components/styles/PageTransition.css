@@ -1,0 +1,17 @@
+/* src/components/styles/PageTransition.css */
+.page-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .page-transition.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .page-transition.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  

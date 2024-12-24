@@ -1,0 +1,134 @@
+/* Global styles */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f7fc;
+    --text-color: #2c3e50;
+    --button-bg: #3498db;
+    --button-hover: #2980b9;
+    --card-bg: #ffffff;
+    --button-radius: 30px;
+    --border-radius: 8px;
+    --font-family: 'Roboto', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+  }
+  
+  /* Container for the favorites page */
+  .favorites-container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .favorites-container h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* No favorites text */
+  .no-favorites-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-top: 2rem;
+  }
+  
+  /* Card styling */
+  .favorite-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  
+  .favorite-card {
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .favorite-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .favorite-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .favorite-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+  }
+  
+  .favorite-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    word-wrap: break-word;
+  }
+  
+  .favorite-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Button and links */
+  .read-more-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--button-bg);
+    color: white;
+    border-radius: var(--button-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .read-more-link:hover {
+    background-color: var(--button-hover);
+  }
+  
+  .remove-favorite-btn {
+    margin-top: 1.2rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .remove-favorite-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .favorites-container h2 {
+      font-size: 1.8rem;
+    }
+  
+    .favorite-card {
+      padding: 1rem;
+    }
+  
+    .favorite-title {
+      font-size: 1.3rem;
+    }
+  }
+  

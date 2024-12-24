@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
+import './styles/ArticleList.css';
 
 // Function to validate and format the data fetched from the API
 const validateAndFormatData = (fetchedData) => {
@@ -13,16 +15,26 @@ const validateAndFormatData = (fetchedData) => {
   }
 };
 
-const ArticleList = ({ category }) => {
+const ArticleList = ({ category = 'general' }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchArticles = async () => {
       setLoading(true);
+
+      // Log the token from localStorage
+      const token = localStorage.getItem('token');
+      console.log('Token from localStorage:', token);  // Log the token
+
       try {
-        const response = await fetch(`http://localhost:8000/news?category=${category}`);
-        
+        const response = await fetch(`http://localhost:8000/news?category=${category}`, {
+          method: 'GET',
+          headers: {
+            'Authorization': token ? `Bearer ${token}` : '',  // Ensure token is sent if available
+          },
+        });
+
         if (!response.ok) {
           console.error('Failed to fetch articles, status:', response.status);
           setArticles([]);
@@ -38,13 +50,14 @@ const ArticleList = ({ category }) => {
         console.error('Error fetching articles:', error);
         setArticles([]);
       }
+
       setLoading(false);
     };
 
     fetchArticles();
   }, [category]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
 
   return (
     <div className="article-list">
