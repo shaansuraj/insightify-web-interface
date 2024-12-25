@@ -20,6 +20,9 @@ function Navbar() {
         <Tooltip text="Go to Home">
           <Link to="/" className="nav-link">Home</Link>
         </Tooltip>
+        <Tooltip text="About Us">
+          <Link to="/about" className="nav-link">About</Link>
+        </Tooltip>
         {token ? (
           <>
             <Tooltip text="Your favorite articles">

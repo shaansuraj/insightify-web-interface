@@ -1,45 +1,82 @@
 .about-container {
-    padding: 40px;
-    background-color: #f4f4f9;
-    color: #333;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  padding: 40px;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.about-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.about-container p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2, .about-content h3 {
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.about-content ul {
+  margin-bottom: 20px;
+}
+
+.about-content ul li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.team-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.team-member {
+  flex: 1;
+  min-width: 220px;
+  background: #f4f4f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.team-member p strong {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .team-section {
+      flex-direction: column;
+      align-items: center;
   }
-  
-  .about-container h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #007bff;
-  }
-  
-  .about-container p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    text-align: justify;
-  }
-  
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .team-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .team-list li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #555;
-  }
-  
-  .team-list li strong {
-    color: #007bff;
-  }
-  
+}
